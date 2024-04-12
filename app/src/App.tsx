@@ -1,4 +1,5 @@
 import './App.css'
+import './styles/global.css'
 import Dashboard from './views/Auth';
 import Create from './views/Auth/Posts/Create';
 import PostList from './views/Auth/Posts/List';
