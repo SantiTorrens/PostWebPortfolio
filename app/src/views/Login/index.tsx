@@ -2,11 +2,12 @@ import { ReactElement, useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import { login } from "../../api/services/AuthServices";
 import { FormErrors, FormStateType } from "../../types/form";
-import { LoginPayload } from "../../types/auth";
+import { LoginPayload, loginResponse } from "../../types/auth";
 import useForm from "../../hooks/useForm";
 import { Link, useNavigate } from "react-router-dom";
 import validateForm from "../../utils/validateForm";
 import FormInput from "../../components/FormInput";
+import { useUserStore } from "../../store/userSlice";
 
 
 export default function Login(): ReactElement {
@@ -15,7 +16,7 @@ export default function Login(): ReactElement {
     password: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
-
+  const setUserData = useUserStore((state) => state.setUserData);
   const navigate = useNavigate();
 
 
@@ -26,9 +27,9 @@ export default function Login(): ReactElement {
     setErrors(formErrors);
 
     if (Object.keys(formErrors).length === 0) {
-      const response = await login(formState as LoginPayload);
-      console.log("🚀 ~ handleLogin ~ response:", response)
+      const response: loginResponse = await login(formState as LoginPayload);
       if (response.success) {
+        setUserData(response.user)
         navigate("/dashboard");
       }
       resetForm()

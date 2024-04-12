@@ -14,9 +14,9 @@ export interface signUpPayload extends FormStateType {
 
 export interface loginResponse {
   success: boolean,
-  user?: User,
+  user: User,
 }
 export interface signUpResponse {
   success: boolean,
-  user?: User,
+  user: User,
 }

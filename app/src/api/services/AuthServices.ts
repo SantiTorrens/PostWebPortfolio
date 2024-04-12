@@ -10,7 +10,6 @@ export async function login({ email, password }: LoginPayload): Promise<loginRes
         imageUrl: "http://example.com",
       }
     };
-
     //TODO Here we should make the login request and return the data object
     // await axiosInstance.post("/login", { email: email, password: password });
 

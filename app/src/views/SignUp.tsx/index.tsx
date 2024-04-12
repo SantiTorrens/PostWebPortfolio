@@ -7,6 +7,7 @@ import useForm from "../../hooks/useForm";
 import { Link, useNavigate } from "react-router-dom";
 import validateLoginForm from "../../utils/validateForm";
 import FormInput from "../../components/FormInput";
+import { useUserStore } from "../../store/userSlice";
 
 
 export default function SignUp(): ReactElement {
@@ -16,6 +17,7 @@ export default function SignUp(): ReactElement {
     passwordConfirmation: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
+  const setUserData = useUserStore((state) => state.setUserData);
 
   const navigate = useNavigate();
 
@@ -32,6 +34,8 @@ export default function SignUp(): ReactElement {
       const response = await signUp(formState as signUpPayload);
       console.log("🚀 ~ handleLogin ~ response:", response)
       if (response.success) {
+        setUserData(response.user)
+
         navigate("/dashboard");
       }
 
