@@ -16,7 +16,7 @@ export default function Login(): ReactElement {
     password: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const setUserData = useUserStore((state) => state.setUserData);
+  const { setUserData } = useUserStore();
   const navigate = useNavigate();
 
 
@@ -38,13 +38,13 @@ export default function Login(): ReactElement {
 
   return (
     <MainLayout>
-      <div className="h-full w-full flex flex-col justify-center">
-        <div className="w-full flex flex-row">
-          <div className="w-1/2 flex items-center justify-center">
+      <div className="flex flex-col justify-center w-full h-full">
+        <div className="flex flex-row w-full">
+          <div className="flex items-center justify-center w-1/2">
             <h2 className="animatedHeadline ">LOGIN</h2>
           </div>
-          <div className="bg-blue-200 p-5 py-10 h-full w-1/2 flex gap-8 flex-col my-auto mx-auto rounded-xl shadow-lg">
-            <form onSubmit={submit} className="flex flex-col gap-2 w-full max-w-md mx-auto">
+          <div className="flex flex-col w-1/2 h-full gap-8 p-5 py-10 mx-auto my-auto bg-blue-200 shadow-lg rounded-xl">
+            <form onSubmit={submit} className="flex flex-col w-full max-w-md gap-2 mx-auto">
               <FormInput
                 label="Email"
                 type="text"

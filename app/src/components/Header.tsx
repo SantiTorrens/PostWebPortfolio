@@ -22,7 +22,7 @@ export default function Header(): ReactElement {
             className={`text-white bold  hover:text-black  px-6 py-2 rounded-xl ${location.pathname === "/posts" ? "text-black " : ""}`}
             to="/posts"
           >
-            Random Posts
+            Posts
           </Link>
         </div>
         <div className="gap-4 text-white flex mx-auto mt-4 md:mt-0 md:ml-auto md:mr-0">
