@@ -44,7 +44,7 @@ function Home(): ReactElement {
         <p className="w-full">
           Ready to dive in? Click below to begin your journey through our collection of random posts. Every click brings a new adventure!
         </p>
-        <Link to="/posts">Explore Random Posts</Link>
+        <Link to="/posts">Explore Posts</Link>
       </div>
     </MainLayout>
   )
