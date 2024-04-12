@@ -11,7 +11,7 @@ export default function AuthLayout({ children }: AuthLayoutProps): ReactElement 
 
     <div className=" flex flex-col h-full">
       <Header></Header>
-      <div className="container mx-auto p-5  h-full">
+      <div className="container mx-auto p-5  h-full ">
         {children}
       </div>
       <Footer></Footer>
