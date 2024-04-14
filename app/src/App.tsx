@@ -8,10 +8,11 @@ import Login from './views/Login/'
 import Posts from './views/Posts/'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './views/SignUp.tsx';
+import Favorites from './views/Auth/Posts/Favorites.tsx';
+import ProtectedRoute from './components/PortectedRoute.tsx';
 
 
 function App() {
-
   return (
     <div className="w-full h-full">
       <Router>
@@ -23,9 +24,11 @@ function App() {
             <Route path="/signUp" element={<SignUp />} />
 
             {/* Auth Routes */}
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/posts" element={<PostList />} />
-            <Route path="/dashboard/posts/create" element={<Create />} />
+
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>} />
+            <Route path="/dashboard/posts" element={<ProtectedRoute><PostList /></ProtectedRoute>} />
+            <Route path="/dashboard/posts/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+            <Route path="/dashboard/posts/create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
           </Routes>
         </div>
       </Router>
