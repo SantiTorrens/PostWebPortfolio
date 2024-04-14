@@ -22,7 +22,7 @@ export default function PostItem({ post }: PostItemProps): ReactElement {
         >
           Read More
         </span>
-        <span onClick={() => deletePost(post.id)} className="p-2 ml-auto text-white bg-transparent bg-red-500 rounded cursor-pointer ">Delete Post</span>
+        <span onClick={() => deletePost(post.id)} className="p-2 ml-auto text-white bg-red-500 rounded cursor-pointer ">Delete Post</span>
       </div>
     </Card>
   )
