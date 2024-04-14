@@ -1,51 +1,68 @@
-import { ReactElement, useState } from "react"
+// PostListContainer.tsx
+import { ReactElement, useState } from "react";
 import { Post } from "../../types/post";
-import PostList from "../components/PostList";
 import { usePostStore } from "../../store/postSlice";
 import Modal from "../../components/Modal";
 import PostComments from "../components/PostComments";
+import PostFilter from "../components/PostFilter";
+import PostList from "../components/PostList";
 
 interface PostListContainerProps {
-  filter?: boolean,
-  posts: Post[]
+  filterByTitle?: boolean;
+  filterByUser?: boolean;
+  posts: Post[];
 }
 
-export default function PostListContainer({ filter = false, posts }: PostListContainerProps): ReactElement {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const { postComments, showCommentsModal, closeCommentsModal } = usePostStore();
+export default function PostListContainer({
+  filterByUser = false,
+  filterByTitle = false,
+  posts,
+}: PostListContainerProps): ReactElement {
 
-  const filteredPosts = posts.filter(post =>
-    post.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const { postsUsers, postComments, showCommentsModal, closeCommentsModal } = usePostStore();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedUserId, setSelectedUserId] = useState("");
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const filteredPosts = posts.filter((post) => {
+    const titleMatch = !filterByTitle || post.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const userMatch = !filterByUser || selectedUserId === "" || post.userId.toString() === selectedUserId;
+
+    return titleMatch && userMatch;
+  });
+
+  const handleSearchChange = (value: string): void => {
+    setSearchQuery(value);
+  };
+
+  const handleUserFilterChange = (userId: string): void => {
+    setSelectedUserId(userId);
+  };
+
+  const handleResetUserFilter = (): void => {
+    setSelectedUserId("");
   };
 
   return (
     <div className="h-[80vh] flex flex-col">
-      <div className="w-1/3">
-        {filter &&
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={handleSearchChange}
-            placeholder="Search by title..."
-            className="w-full p-2 mb-4 border rounded-md"
-          />
-        }
-      </div>
-
+      <PostFilter
+        filterByTitle={filterByTitle}
+        filterByUser={filterByUser}
+        onSearchChange={handleSearchChange}
+        onUserFilterChange={handleUserFilterChange}
+        onResetUserFilter={handleResetUserFilter}
+        users={postsUsers}
+        selectedUserId={selectedUserId}
+      />
       <PostList posts={filteredPosts} />
-
-      {showCommentsModal &&
+      {showCommentsModal && (
         <Modal closeModal={() => closeCommentsModal()}>
           <PostComments
             post={filteredPosts.find((post) => post.id === postComments[0].postId) ?? null}
-            postComments={postComments} />
+            postComments={postComments}
+          />
         </Modal>
-      }
-
+      )}
     </div>
-  )
+  );
 }

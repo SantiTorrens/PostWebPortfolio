@@ -16,8 +16,8 @@ export default function PostComments({ postComments, post }: PostItemProps): Rea
       return (
         <div key={index} className={`flex rounded-lg p-5 flex-col text-black transition duration-500 cursor-default ${index % 2 ? 'bg-blue-200' : 'bg-blue-100'}`}>
           <h4 className="text-lg text-bold">{comment.name}</h4>
-          <p>{comment.body}</p>
-          <span>{comment.email}</span>
+          <p className="text-gray-500 text-md">{comment.body}</p>
+          <span className="mt-5 ml-auto">{comment.email}</span>
 
         </div>
 
@@ -26,11 +26,14 @@ export default function PostComments({ postComments, post }: PostItemProps): Rea
   }
 
   return (
-    <Card classes="p-5 w-2/3 mx-auto flex flex-col p-5">
-      <h4 className="text-lg text-center text-bold">{localPost.title}</h4>
-      <p className="text-center">{localPost.body}</p>
-      <div className="py-4">
-        <span className="mb-2 text-bold">
+    <Card classes="p-5  flex flex-col p-5">
+      <div className="flex flex-col w-2/3 gap-4 mx-auto">
+
+        <h2 className="text-4xl text-center text-bold">{localPost.title}</h2>
+        <p className="text-lg text-center">{localPost.body}</p>
+      </div>
+      <div className="flex flex-col py-4">
+        <span className="w-full mb-2 text-2xl text-center text-bold">
           Comments:
         </span>
         <div className="flex flex-col gap-2 px-5 max-h-[400px] overflow-y-scroll">
