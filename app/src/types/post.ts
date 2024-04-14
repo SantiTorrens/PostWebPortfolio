@@ -1,4 +1,7 @@
+import { PostUser } from "./user";
+
 export interface Post {
+    user?: PostUser;
     userId: number;
     id: number;
     title: string;
@@ -10,11 +13,14 @@ export interface PostsState {
     savedPosts: Post[];
     showCommentsModal: boolean;
     postComments: PostCommentInterface[] | [];
-    setPosts: (newPosts: Post[]) => void;
+    postsUsers: PostUser[];
+    setPosts: () => void;
     savePost: (post: Post) => void;
     removeSavedPost: (postId: number) => void;
-    getPostComments: (postId: number) => void;
+    setPostComments: (postId: number) => void;
+    setPostsUsers: () => void;
     closeCommentsModal: () => void;
+    deletePost: (postId: number) => void;
 }
 
 export interface PostCommentInterface {

@@ -16,7 +16,7 @@ export default function PostList({ posts }: PostListProps): ReactElement {
   }
 
   return (
-    <div className="h-full overflow-y-auto grid grid-cols-4 gap-3">
+    <div className="grid h-full grid-cols-4 gap-3 pr-2 overflow-y-auto">
       {renderPosts()}
     </div>
   )

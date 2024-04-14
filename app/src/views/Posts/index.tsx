@@ -1,23 +1,23 @@
 import { ReactElement, useEffect } from "react";
-import { getPosts } from "../../api/services/PostsService";
 import MainLayout from "../../layouts/MainLayout";
 import { usePostStore } from "../../store/postSlice";
 import PostListContainer from "../../posts/containers/PostListContainer";
 
 export default function Posts(): ReactElement {
-  const { setPosts, posts } = usePostStore()
-  const fetchPosts = async () => {
-    setPosts(await getPosts())
-  }
+  const { setPosts, posts, setPostsUsers } = usePostStore()
 
+  const fetchData = async () => {
+    await setPostsUsers();
+    await setPosts()
+  }
   useEffect(() => {
-    fetchPosts()
+    fetchData();
   }, [])
 
   return (
     <MainLayout>
       <div >
-        <PostListContainer filter posts={posts}></PostListContainer>
+        <PostListContainer filterByTitle filterByUser posts={posts}></PostListContainer>
       </div>
     </MainLayout>
   )
