@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import validateLoginForm from "../../utils/validateForm";
 import FormInput from "../../components/FormInput";
 import { useUserStore } from "../../store/userSlice";
+import Card from "../../components/Card";
 
 
 export default function SignUp(): ReactElement {
@@ -45,16 +46,16 @@ export default function SignUp(): ReactElement {
 
   return (
     <MainLayout>
-      <div className="h-full w-full flex flex-col justify-center ">
+      <div className="flex flex-col justify-center w-full h-full ">
 
-        <div className="w-full flex flex-row">
+        <div className="flex flex-row w-full">
 
-          <div className="w-1/2 flex items-center justify-center">
+          <div className="flex items-center justify-center w-1/2">
 
             <h2 className="animatedHeadline ">SIGN UP</h2>
           </div>
-          <div className="bg-blue-200 p-5 h-full w-1/2 py-10 flex gap-8 flex-col my-auto mx-auto rounded-xl shadow-lg">
-            <form onSubmit={submit} className="flex flex-col gap-2 w-full max-w-md mx-auto">
+          <Card classes=" p-5 h-full w-1/2 py-10 flex gap-8 flex-col my-auto mx-auto ">
+            <form onSubmit={submit} className="flex flex-col w-full max-w-md gap-2 mx-auto">
               <FormInput
                 label="Email"
                 type="text"
@@ -81,7 +82,7 @@ export default function SignUp(): ReactElement {
             </form>
             <hr className="m-auto my-6 w-64 border-[0.5px] border-black" />
             <Link className="mx-auto" to="/login" >Login</Link>
-          </div>
+          </Card>
         </div>
       </div>
     </MainLayout>
