@@ -7,8 +7,10 @@ export default function Posts(): ReactElement {
   const { setPosts, posts, setPostsUsers } = usePostStore()
 
   const fetchData = async () => {
-    await setPostsUsers();
-    await setPosts()
+    if (!posts.length) {
+      await setPostsUsers();
+      await setPosts()
+    }
   }
   useEffect(() => {
     fetchData();

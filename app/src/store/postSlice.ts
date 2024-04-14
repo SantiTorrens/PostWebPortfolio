@@ -14,11 +14,13 @@ export const usePostStore = create<PostsState>((set) => ({
     postComments: [],
     postsUsers: [],
     setPosts: async () => {
-        const posts = await getPosts();
-        set((state) => {
-          posts.map((post) => {
-            return post.user = state.postsUsers.find((user) => user.id === post.userId)
-          })
+      const posts = await getPosts();
+      set((state) => {
+            posts.map((post) => {
+                return (post.user = state.postsUsers.find(
+                    (user) => user.id === post.userId
+                ));
+            });
             return {
                 ...state,
                 posts: [...posts],
@@ -29,10 +31,19 @@ export const usePostStore = create<PostsState>((set) => ({
         set((state) => {
             return {
                 ...state,
-                savedPosts: {
-                    ...state.savedPosts,
-                    post,
-                },
+                savedPosts: [...state.savedPosts, post],
+            };
+        });
+    },
+    unSavePost: (post) => {
+        set((state) => {
+            return {
+                ...state,
+                savedPosts: [
+                    ...state.savedPosts.filter(
+                        (savedPost) => savedPost.id !== post.id
+                    ),
+                ],
             };
         });
     },
