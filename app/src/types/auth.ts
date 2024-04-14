@@ -12,6 +12,11 @@ export interface signUpPayload extends FormStateType {
     passwordConfirmation: string;
 }
 
+export interface updateUserPayload extends FormStateType {
+    email: string;
+    username: string;
+}
+
 export interface loginResponse {
   success: boolean,
   user: User,
@@ -19,4 +24,8 @@ export interface loginResponse {
 export interface signUpResponse {
   success: boolean,
   user: User,
+}
+export interface updateUserResponse {
+  success: boolean,
+  user: User
 }
