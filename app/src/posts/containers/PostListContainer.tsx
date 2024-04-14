@@ -10,7 +10,7 @@ import PostList from "../components/PostList";
 interface PostListContainerProps {
   filterByTitle?: boolean;
   filterByUser?: boolean;
-  posts: Post[];
+  posts?: Post[];
 }
 
 export default function PostListContainer({
@@ -23,7 +23,7 @@ export default function PostListContainer({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUserId, setSelectedUserId] = useState("");
 
-  const filteredPosts = posts.filter((post) => {
+  const filteredPosts = posts?.filter((post) => {
     const titleMatch = !filterByTitle || post.title.toLowerCase().includes(searchQuery.toLowerCase());
 
     const userMatch = !filterByUser || selectedUserId === "" || post.userId.toString() === selectedUserId;
@@ -54,11 +54,13 @@ export default function PostListContainer({
         users={postsUsers}
         selectedUserId={selectedUserId}
       />
-      <PostList posts={filteredPosts} />
+      {filteredPosts?.length ?
+        <PostList posts={filteredPosts} />
+        : <h1 className="mx-auto my-auto">There are no posts to show</h1>}
       {showCommentsModal && (
         <Modal closeModal={() => closeCommentsModal()}>
           <PostComments
-            post={filteredPosts.find((post) => post.id === postComments[0].postId) ?? null}
+            post={filteredPosts?.find((post) => post.id === postComments[0].postId) ?? null}
             postComments={postComments}
           />
         </Modal>

@@ -16,6 +16,7 @@ export interface PostsState {
     postsUsers: PostUser[];
     setPosts: () => void;
     savePost: (post: Post) => void;
+    unSavePost: (post: Post) => void;
     removeSavedPost: (postId: number) => void;
     setPostComments: (postId: number) => void;
     setPostsUsers: () => void;
