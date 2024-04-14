@@ -1,7 +1,19 @@
+import { updateUserPayload } from "./auth";
+
 export interface User {
+    userId: number;
     email: string;
     name: string;
     imageUrl: string;
+}
+export interface UserState {
+    userId: number;
+    name: string;
+    email: string;
+    isLoggedIn: boolean;
+    setUpdatedUser: (data: updateUserPayload) => void;
+    setUserData: (user: User) => void;
+    logout: () => void;
 }
 
 export interface PostUser {
