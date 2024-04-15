@@ -9,6 +9,7 @@ import validateLoginForm from "../../utils/validateForm";
 import FormInput from "../../components/FormInput";
 import { useUserStore } from "../../store/userSlice";
 import Card from "../../components/Card";
+import { toast } from "sonner";
 
 
 export default function SignUp(): ReactElement {
@@ -36,7 +37,7 @@ export default function SignUp(): ReactElement {
       console.log("🚀 ~ handleLogin ~ response:", response)
       if (response.success) {
         setUserData(response.user)
-
+        toast.success("Successfully Registered")
         navigate("/dashboard");
       }
 

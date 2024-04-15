@@ -9,11 +9,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './views/SignUp.tsx';
 import Favorites from './views/Auth/Posts/Favorites.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
+import { Toaster } from 'sonner';
 
 
 function App() {
   return (
     <div className="w-full h-full">
+      <Toaster position="bottom-right" richColors/>
+
       <Router>
         <div className="w-full h-full">
           <Routes>

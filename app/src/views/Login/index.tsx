@@ -9,6 +9,7 @@ import validateForm from "../../utils/validateForm";
 import FormInput from "../../components/FormInput";
 import { useUserStore } from "../../store/userSlice";
 import Card from "../../components/Card";
+import { toast } from "sonner";
 
 
 export default function Login(): ReactElement {
@@ -30,6 +31,7 @@ export default function Login(): ReactElement {
     if (Object.keys(formErrors).length === 0) {
       const response: loginResponse = await login(formState as LoginPayload);
       if (response.success) {
+        toast.success("Login successful")
         setUserData(response.user)
         navigate("/dashboard");
       }

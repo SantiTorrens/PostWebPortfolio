@@ -7,6 +7,7 @@ import {
     getPostsUsers,
 } from "../api/services/PostsService";
 import { devtools, persist } from "zustand/middleware";
+import { toast } from "sonner";
 
 export const usePostStore = create<PostsState>()(
     devtools(
@@ -32,6 +33,7 @@ export const usePostStore = create<PostsState>()(
                     });
                 },
                 savePost: (post) => {
+                    toast.success("Post saved successfully");
                     set((state) => {
                         return {
                             ...state,
@@ -40,6 +42,7 @@ export const usePostStore = create<PostsState>()(
                     });
                 },
                 unSavePost: (post) => {
+                    toast.success("Post removed from favorites");
                     set((state) => {
                         return {
                             ...state,
