@@ -1,6 +1,7 @@
 import { Post, PostCommentInterface } from "../../types/post";
 import axiosInstance from "../../utils/axios";
 import { PostUser } from "../../types/user";
+import { toast } from "sonner";
 
 export async function getPosts(): Promise<Post[]> {
     try {
@@ -15,7 +16,9 @@ export async function getPosts(): Promise<Post[]> {
     }
 }
 
-export async function getPostComments(postId: number): Promise<PostCommentInterface[]> {
+export async function getPostComments(
+    postId: number
+): Promise<PostCommentInterface[]> {
     try {
         const postComments = await axiosInstance.get(
             `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
@@ -33,8 +36,10 @@ export async function deletePost(postId: number): Promise<void> {
         await axiosInstance.delete(
             `https://jsonplaceholder.typicode.com/posts/${postId}`
         );
+        toast.success("post deleted successfully");
     } catch (error) {
         console.log("🚀 ~ deletePost ~ error:", error);
+        toast.success("There was an error deleting the post");
     }
 }
 
