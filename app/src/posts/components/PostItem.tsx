@@ -16,8 +16,7 @@ export default function PostItem({ post }: PostItemProps): ReactElement {
   const { isLoggedIn } = useUserStore();
   const isSaved = (): boolean => {
     if (savedPosts.length > 0) {
-      // return savedPosts.some((savedPost) => savedPost.id === post.id,)
-      return savedPosts.indexOf(post) !== -1;
+      return savedPosts.some((savedPost) => savedPost.id === post.id,)
     } else {
       return false
     }

@@ -21,14 +21,14 @@ export default function PostFilter({
   onResetUserFilter,
   users,
 }: PostFilterProps): ReactElement {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchQuery(e.target.value);
     onSearchChange(e.target.value);
   };
 
-  const handleUserFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleUserFilterChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     onUserFilterChange(e.target.value);
   };
 
@@ -48,11 +48,12 @@ export default function PostFilter({
       {filterByUser && (
         <div className="flex flex-row w-1/3 gap-2">
           <select
+            value={selectedUserId}
             onChange={handleUserFilterChange}
             className={`w-2/3 p-2 mb-4 border rounded-md ${selectedUserId === "" ? "text-gray-400" : ""
               }`}
           >
-            <option selected={!selectedUserId || selectedUserId === ""} disabled>
+            <option value="" disabled>
               Filter Posts By User
             </option>
             {users.map((user, index) => {

@@ -6,15 +6,16 @@ import PostListContainer from "../../posts/containers/PostListContainer";
 export default function Posts(): ReactElement {
   const { setPosts, posts, setPostsUsers } = usePostStore()
 
-  const fetchData = async () => {
-    if (!posts.length) {
-      await setPostsUsers();
-      await setPosts()
-    }
-  }
   useEffect(() => {
+    const fetchData = async () => {
+      if (!posts.length) {
+        await Promise.all([setPostsUsers(), setPosts()]);
+      }
+    };
+
     fetchData();
-  }, [])
+  }, [setPostsUsers, setPosts, posts]);
+
 
   return (
     <MainLayout>
