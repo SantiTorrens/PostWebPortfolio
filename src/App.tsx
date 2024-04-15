@@ -1,12 +1,12 @@
 import './App.css'
 import './styles/global.css'
-import Dashboard from './views/Auth';
-import PostList from './views/Auth/Posts/List';
+import Dashboard from './views/Auth/index.tsx';
+import PostList from './views/Auth/Posts/List.tsx';
 import Home from './views/index'
-import Login from './views/Login/'
-import Posts from './views/Posts/'
+import Login from './views/Login/index.tsx'
+import Posts from './views/Posts/index.tsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignUp from './views/SignUp.tsx';
+import SignUp from './views/SignUp.tsx/index.tsx';
 import Favorites from './views/Auth/Posts/Favorites.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 import { Toaster } from 'sonner';
