@@ -18,7 +18,7 @@ The main folder of the project is the `app` folder. Inside this folder, you will
 
 ### Available Scripts
 
-In the project directory, you can run the following commands:
+In the /app directory, you can run the following commands:
 
 - `npm install`: Installs the necessary dependencies for the project.
 - `npm run dev`: Runs the app in development mode. Open http://localhost:3000 to view it in the browser.
