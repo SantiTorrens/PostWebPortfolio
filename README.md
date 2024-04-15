@@ -1,6 +1,6 @@
-# Cleverpy Technical Test
+# Random Post API Portfolio
 
-Welcome to the technical test repository! This repository contains the codebase for a web application built as part of a technical assessment.
+Welcome to the Random Post Portfolio repository! This repository contains the codebase for a web application built as part of a technical assessment.
 
 ## About the Project
 
