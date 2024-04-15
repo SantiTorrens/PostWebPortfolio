@@ -12,9 +12,10 @@ interface formInputProps {
 export default function FormInput({ disabled, label, type, name, value, handleInput, error }: formInputProps): ReactElement {
   return (
     <div className="flex flex-col w-full">
-      <label className="text-black">{label}:</label>
+      <label htmlFor={name} className="text-black">{label}:</label>
       <input type={type}
         name={name}
+        id={name}
         autoFocus
         disabled={disabled}
         autoComplete="mail@example.com"

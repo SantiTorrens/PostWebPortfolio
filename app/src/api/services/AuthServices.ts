@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
     LoginPayload,
     loginResponse,
@@ -6,6 +7,7 @@ import {
     updateUserPayload,
     updateUserResponse,
 } from "../../types/auth";
+import axiosInstance from "../../utils/axios";
 // import axiosInstance from "../../utils/axios";
 
 export async function login({
@@ -21,10 +23,19 @@ export async function login({
             imageUrl: "http://example.com",
         },
     };
-    //TODO Here we should make the login request and return the data object
-    // await axiosInstance.post("/login", { email: email, password: password });
 
-    return data;
+    // DEFINED ONLY FOR MOCK
+    try {
+        const response = await axiosInstance.post("/login", {
+            email: email,
+            password: password,
+        });
+        return response.data;
+    } catch (error) {
+        console.log("🚀 ~ error:", error);
+        // RETURNS THE MOCKED DATA
+        return data;
+    }
 }
 
 export async function signUp({
@@ -42,13 +53,24 @@ export async function signUp({
         },
     };
 
-    //TODO Here we should make the login request and return the data object
-    // await axiosInstance.post("/login", { email: email, password: password, passwordConfirmation: passwordConfirmation });
-
-    return data;
+    // DEFINED ONLY FOR MOCK
+    try {
+        const response = await axiosInstance.post("/register", {
+            email: email,
+            password: password,
+            passwordConfirmation: passwordConfirmation,
+        });
+        return response.data;
+    } catch (error) {
+        console.log("🚀 ~ error:", error);
+        // RETURNS THE MOCKED DATA
+        return data;
+    }
 }
 
-export async function updateUser(userData: updateUserPayload): Promise<updateUserResponse> {
+export async function updateUser(
+    userData: updateUserPayload
+): Promise<updateUserResponse> {
     const data = {
         success: true,
         user: {
@@ -58,6 +80,16 @@ export async function updateUser(userData: updateUserPayload): Promise<updateUse
             imageUrl: "http://example.com",
         },
     };
-    // await axiosInstance.post("/update/${userId}", { data: userData});
-    return data;
+
+    // DEFINED ONLY FOR MOCK
+    try {
+        const response = await axiosInstance.post("/update/${userId}", {
+            data: userData,
+        });
+        return response.data;
+    } catch (error) {
+        console.log("🚀 ~ error:", error);
+        // RETURNS THE MOCKED DATA
+        return data;
+    }
 }

@@ -11,4 +11,8 @@ export default defineConfig({
     port: 3000,
     host: 'localhost'
   },
+  optimizeDeps: {
+    include: ['@testing-library/react', '@testing-library/jest-dom'],
+  },
+
 })
