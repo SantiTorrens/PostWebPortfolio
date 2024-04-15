@@ -8,7 +8,7 @@ import Posts from './views/Posts/'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './views/SignUp.tsx';
 import Favorites from './views/Auth/Posts/Favorites.tsx';
-import ProtectedRoute from './components/PortectedRoute.tsx';
+import ProtectedRoute from './components/ProtectedRoute.tsx';
 
 
 function App() {

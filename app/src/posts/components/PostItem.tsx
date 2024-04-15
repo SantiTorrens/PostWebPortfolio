@@ -25,15 +25,17 @@ export default function PostItem({ post }: PostItemProps): ReactElement {
     <Card classes="hover:bg-blue-500  flex flex-col min-h-60 relative h-fit text-black transition duration-500 cursor-default">
 
       {isLoggedIn ? isSaved() ?
-        <FontAwesomeIcon 
-        onClick={() => unSavePost(post)} 
-        className="absolute text-lg text-red-500 cursor-pointer top-4 right-4" 
-        icon={FilledHeart}/>
+        <FontAwesomeIcon
+          title="unSave"
+          onClick={() => unSavePost(post)}
+          className="absolute text-lg text-red-500 cursor-pointer top-4 right-4"
+          icon={FilledHeart} />
         :
-        <FontAwesomeIcon 
-        onClick={() => savePost(post)} 
-        className="absolute text-lg text-red-500 cursor-pointer top-4 right-4" 
-        icon={faHeart} />
+        <FontAwesomeIcon
+          title="save"
+          onClick={() => savePost(post)}
+          className="absolute text-lg text-red-500 cursor-pointer top-4 right-4"
+          icon={faHeart} />
         : null}
       <h4 className="mr-5 text-lg text-bold line-clamp-2 min-h-14">{post.title}</h4>
       <span className="mr-auto text-gray-500 text-md">{post.user?.name}</span>
