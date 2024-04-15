@@ -23,14 +23,14 @@ export default function Dashboard(): ReactElement {
     <AuthLayout>
       <div className="flex flex-row items-center justify-center w-full h-full gap-4">
 
-        <Card classes="h-1/2 w-1/2 text-center flex flex-col justify-center">
+        <Card classes="h-1/2 w-1/2 text-center flex flex-col p-5 justify-center gap-5">
           <h2 className="text-3xl text-black">
-            ¡ Welcome to Postify !
+            ¡ Welcome, {name} <br /> to Postify Dashboard !
           </h2>
-          <h2 className="text-2xl text-black" >
-            {name}
-          </h2>
-          <h3>This is your dashboard to manage your own info</h3>
+          <div className="w-2/3 mx-auto">
+            <h3 className="text-gray-600 ">This is your dashboard to manage your own info</h3>
+            <h3 className="text-gray-600 ">Here you can update your Username, and also be able to see the full list of posts and save them as your favorites!</h3>
+          </div>
         </Card>
         <Card classes="w-1/2 h-1/2 items-center justify-center flex">
           <form onSubmit={submit} className="flex flex-col w-full max-w-md gap-2 mx-auto">
@@ -38,7 +38,7 @@ export default function Dashboard(): ReactElement {
             <FormInput disabled name="email" value={formState.email} label="Email" type="text" handleInput={handleInput} />
             <button type="submit" className="w-full mt-4">Update</button>
 
-            </form>
+          </form>
         </Card>
       </div>
     </AuthLayout>

@@ -1,7 +1,6 @@
 import './App.css'
 import './styles/global.css'
 import Dashboard from './views/Auth';
-import Create from './views/Auth/Posts/Create';
 import PostList from './views/Auth/Posts/List';
 import Home from './views/index'
 import Login from './views/Login/'
@@ -28,7 +27,6 @@ function App() {
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>} />
             <Route path="/dashboard/posts" element={<ProtectedRoute><PostList /></ProtectedRoute>} />
             <Route path="/dashboard/posts/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
-            <Route path="/dashboard/posts/create" element={<ProtectedRoute><Create /></ProtectedRoute>} />
           </Routes>
         </div>
       </Router>
