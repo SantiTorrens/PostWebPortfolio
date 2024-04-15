@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Random Post API Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Random Post Portfolio repository! This repository contains the codebase for a web application built as part of a technical assessment.
 
-Currently, two official plugins are available:
+## About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project is a web application that provides a posts page, where users can view posts fetched from an external API. The API used for fetching posts is [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
-## Expanding the ESLint configuration
+### Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Posts Page:** Displays posts fetched from the JSONPlaceholder API.
+- **Login and Register Pages/Forms:** Allows users to authenticate and register accounts.
+- **Dashboard** Allow users to manage their "saved posts". they can view all fetched posts from the API on the "Posts" page and access to a list of their "Favorite Posts" to see saved posts.
 
-- Configure the top-level `parserOptions` property like this:
+### Folder Structure
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+The main folder of the project is the `app` folder. Inside this folder, you will find all the source code and project configuration files.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Available Scripts
+
+In the /app directory, you can run the following commands:
+
+- `npm install`: Installs the necessary dependencies for the project.
+- `npm run dev`: Runs the app in development mode. Open http://localhost:3000 to view it in the browser.
+- `npm run test`: Runs the test suite to ensure the application behaves as expected.
+- `npm run build`: Builds the production-ready version of the application.
+
+## Getting Started
+
+To get a local copy of the project up and running, follow these steps:
+
+1. Clone this repository to your local machine using `git clone <repository-url>`.
+2. Navigate to the `app` directory: `cd app`.
+3. Run `npm install` to install project dependencies.
+4. Once the installation is complete, you can start the development server using `npm run dev`.
