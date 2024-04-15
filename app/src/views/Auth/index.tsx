@@ -34,8 +34,21 @@ export default function Dashboard(): ReactElement {
         </Card>
         <Card classes="w-1/2 h-1/2 items-center justify-center flex">
           <form onSubmit={submit} className="flex flex-col w-full max-w-md gap-2 mx-auto">
-            <FormInput name="name" value={formState.name} label="Username" type="text" handleInput={handleInput} />
-            <FormInput disabled name="email" value={formState.email} label="Email" type="text" handleInput={handleInput} />
+            <FormInput
+              name="name"
+              value={formState.name}
+              label="Username"
+              type="text"
+              handleInput={handleInput}
+            />
+            <FormInput
+              disabled
+              name="email"
+              value={formState.email}
+              label="Email"
+              type="text"
+              handleInput={handleInput}
+            />
             <button type="submit" className="w-full mt-4">Update</button>
 
           </form>

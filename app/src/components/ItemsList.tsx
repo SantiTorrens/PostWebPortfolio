@@ -6,13 +6,13 @@ interface ItemsListProps {
 export default function ItemsList({ items }: ItemsListProps): ReactElement {
 
   const renderItems = (): ReactElement[] => {
-    return items.map((item: string, index: number) => {
-      return <li key={index}>{item}</li>;
+    return items.map((item: string) => {
+      return <li key={item}>{item}</li>;
     });
   };
 
   return (
-    <ul className="gap-2 flex flex-col">
+    <ul className="flex flex-col gap-2">
       {renderItems()}
     </ul>
   )

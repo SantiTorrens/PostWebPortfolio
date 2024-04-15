@@ -44,7 +44,7 @@ export default function Header(): ReactElement {
           >
             Logout
           </button>
-          <img src={userPlaceholder} className="w-10 h-10 mr-4 rounded-full" />
+          <img alt="User" src={userPlaceholder} className="w-10 h-10 mr-4 rounded-full" />
 
         </div>
       </div>

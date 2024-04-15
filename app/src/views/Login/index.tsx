@@ -52,14 +52,16 @@ export default function Login(): ReactElement {
                 value={formState.email}
                 name="email"
                 handleInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
-                error={errors.email} />
+                error={errors.email}
+              />
               <FormInput
                 label="Password"
                 type="password"
                 value={formState.password}
                 name="password"
                 handleInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
-                error={errors.password} />
+                error={errors.password}
+              />
 
               <button type="submit" className="w-full mt-4">Login</button>
             </form>

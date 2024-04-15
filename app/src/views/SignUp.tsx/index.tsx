@@ -62,21 +62,24 @@ export default function SignUp(): ReactElement {
                 value={formState.email}
                 name="email"
                 handleInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
-                error={errors.email} />
+                error={errors.email}
+              />
               <FormInput
                 label="Password"
                 name="password"
                 type="password"
                 value={formState.password}
                 handleInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
-                error={errors.password} />
+                error={errors.password}
+              />
               <FormInput
                 label="Password Confirmation"
                 name="passwordConfirmation"
                 type="password"
                 value={formState.passwordConfirmation}
                 handleInput={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
-                error={errors.passwordConfirmation} />
+                error={errors.passwordConfirmation}
+              />
 
               <button type="submit" className="w-full mt-4">Sign Up</button>
             </form>

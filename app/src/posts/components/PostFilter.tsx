@@ -56,9 +56,9 @@ export default function PostFilter({
             <option value="" disabled>
               Filter Posts By User
             </option>
-            {users.map((user, index) => {
+            {users.map((user) => {
               return (
-                <option key={index} className="text-white" value={user.id}>
+                <option key={user.id} className="text-white" value={user.id}>
                   {user.name}
                 </option>
               );

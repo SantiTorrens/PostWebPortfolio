@@ -14,7 +14,7 @@ export default function PostComments({ postComments, post }: PostItemProps): Rea
   const renderComments = (): ReactElement[] => {
     return comments.map((comment, index) => {
       return (
-        <div key={index} className={`flex rounded-lg p-5 flex-col text-black transition duration-500 cursor-default ${index % 2 ? 'bg-blue-200' : 'bg-blue-100'}`}>
+        <div key={comment.id} className={`flex rounded-lg p-5 flex-col text-black transition duration-500 cursor-default ${index % 2 ? 'bg-blue-200' : 'bg-blue-100'}`}>
           <h4 className="text-lg text-bold">{comment.name}</h4>
           <p className="text-gray-500 text-md">{comment.body}</p>
           <span className="mt-5 ml-auto">{comment.email}</span>
