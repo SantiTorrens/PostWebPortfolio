@@ -9,9 +9,9 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children }: AuthLayoutProps): ReactElement {
   const crumbs = [
-    { id: 1, name: 'Dashboard', url: '/dashboard' },
-    { id: 2, name: 'Posts', url: '/dashboard/posts' },
-    { id: 3, name: 'Post Favorites', url: '/dashboard/posts/favorites' },
+    { id: 1, name: 'Dashboard', url: '/PostWebPortfolio/dashboard' },
+    { id: 2, name: 'Posts', url: '/PostWebPortfolio/dashboard/posts' },
+    { id: 3, name: 'Post Favorites', url: '/PostWebPortfolio/dashboard/posts/favorites' },
   ];
 
   return (

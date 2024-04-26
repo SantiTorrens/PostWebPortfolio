@@ -33,7 +33,7 @@ export default function Login(): ReactElement {
       if (response.success) {
         toast.success("Login successful")
         setUserData(response.user)
-        navigate("/dashboard");
+        navigate("/PostWebPortfolio/dashboard");
       }
       resetForm()
     }

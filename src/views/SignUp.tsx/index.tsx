@@ -38,7 +38,7 @@ export default function SignUp(): ReactElement {
       if (response.success) {
         setUserData(response.user)
         toast.success("Successfully Registered")
-        navigate("/dashboard");
+        navigate("/PostWebPortfolio/dashboard");
       }
 
       resetForm()

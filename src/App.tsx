@@ -20,16 +20,16 @@ function App() {
       <Router>
         <div className="w-full h-full">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/posts" element={<Posts />} />
-            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/PostWebPortfolio/" element={<Home />} />
+            <Route path="/PostWebPortfolio/login" element={<Login />} />
+            <Route path="/PostWebPortfolio/posts" element={<Posts />} />
+            <Route path="/PostWebPortfolio/signUp" element={<SignUp />} />
 
             {/* Auth Routes */}
 
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>} />
-            <Route path="/dashboard/posts" element={<ProtectedRoute><PostList /></ProtectedRoute>} />
-            <Route path="/dashboard/posts/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
+            <Route path="/PostWebPortfolio/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>} />
+            <Route path="/PostWebPortfolio/dashboard/posts" element={<ProtectedRoute><PostList /></ProtectedRoute>} />
+            <Route path="/PostWebPortfolio/dashboard/posts/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
           </Routes>
         </div>
       </Router>

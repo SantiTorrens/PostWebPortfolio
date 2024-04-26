@@ -10,7 +10,7 @@ export default function Header(): ReactElement {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate("/PostWebPortfolio/");
 
   }
   return (
@@ -19,19 +19,19 @@ export default function Header(): ReactElement {
         <div className="flex flex-row">
           <Link
             className={`text-white bold  hover:text-black  px-6 py-2 rounded-xl ${location.pathname === "/" ? "text-black" : ""}`}
-            to="/dashboard"
+            to="/PostWebPortfolio/dashboard"
           >
             Dashboard
           </Link>
           <Link
             className={`text-white bold  hover:text-black  px-6 py-2 rounded-xl ${location.pathname === "/posts" ? "text-black " : ""}`}
-            to="/dashboard/posts"
+            to="/PostWebPortfolio/dashboard/posts"
           >
             Posts
           </Link>
           <Link
             className={`text-white bold  hover:text-black  px-6 py-2 rounded-xl ${location.pathname === "/posts" ? "text-black " : ""}`}
-            to="/dashboard/posts/favorites"
+            to="/PostWebPortfolio/dashboard/posts/favorites"
           >
             Favorite Posts
           </Link>
